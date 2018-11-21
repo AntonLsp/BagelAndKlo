@@ -1,8 +1,10 @@
 package restaurant;
 
+import java.util.List;
+
 public class Bill {
 
-    private Product products;
+    private List<Product> products;
     private float htPrice;
     private float ttcPrice;
     private float tvaPercentage;
@@ -18,12 +20,16 @@ public class Bill {
     {
         try{
             Product p = inventory.grab(name);
-
+            products.add(p);
         }
         catch (ProductNotFoundException e)
         {
             throw new ProductNotFoundException();
         }
+    }
+
+    public void remove(String name, Inventory inventory)
+    {
 
     }
 

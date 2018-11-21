@@ -39,6 +39,19 @@ public class Inventory {
         throw new ProductNotFoundException();
     }
 
+    public void remove(String name) throws ProductNotFoundException
+    {
+        if(name == null) throw new ProductNotFoundException();
+        for(int i = 0; i < productStacks.size() ; i++)
+        {
+            ProductStack ps = productStacks.get(i);
+            if( ps.getName().equalsIgnoreCase(name) ){
+                productStacks.remove(ps);
+            }
+        }
+        throw new ProductNotFoundException();
+    }
+
     public void addNewProduct(String name,float price, int quantity)
     {
         ProductStack productStack = new ProductStack(name,price,quantity);
