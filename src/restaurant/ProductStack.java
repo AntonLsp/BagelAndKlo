@@ -33,13 +33,20 @@ public class ProductStack {
         this.quantity += quantity;
     }
 
-    public Product grab()
+    public Product grab() throws EmptyProductStackException
     {
         if(quantity > 0) {
             quantity--;
             return new Product(name, price);
         }
-        return null; // A CHANGER
+        else {
+            throw new EmptyProductStackException();
+        }
+    }
+
+    public String toString()
+    {
+        return this.name + " : " + price;
     }
 
 }
