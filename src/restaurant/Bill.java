@@ -82,12 +82,16 @@ public class Bill {
 
     public String toString()
     {
-        String text = "";
+        String text = customerName + " :\n";
         for(BillProduct b : productList)
         {
             text += b.product.getName() + " : " + b.getCount() + "  " + b.product.getPrice() + "\n";
         }
         return text;
+    }
+
+    public String getCustomerName(){
+        return customerName;
     }
 
 }

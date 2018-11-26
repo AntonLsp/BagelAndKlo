@@ -7,7 +7,7 @@ public class Calculator {
     public float getPriceHt(List<Product> products) {
         float priceHt=0;
         for(int i=0;i<products.size();i++){
-            priceHt= priceHt + products.get(i).getPrice();
+            priceHt = priceHt + products.get(i).getPrice();
         }
         return priceHt;
     }

@@ -52,10 +52,22 @@ public class Inventory {
         throw new ProductNotFoundException();
     }
 
-    public void addNewProduct(String name,float price, int quantity)
+    private void addNewProduct(String name,float price, int quantity)
     {
         ProductStack productStack = new ProductStack(name,price,quantity);
         productStacks.add(productStack);
+    }
+
+    public void add(String name, float price, int quantity)
+    {
+        for(int i = 0; i<productStacks.size(); i++)
+        {
+            if(productStacks.get(i).getName() == name){
+                productStacks.get(i).add(quantity);
+                return;
+            }
+        }
+        addNewProduct(name,price,quantity);
     }
 
     public String toString()
