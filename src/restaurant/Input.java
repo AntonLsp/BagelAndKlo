@@ -13,7 +13,7 @@ public class Input {
         this.scanner = scanner;
     }
 
-    public void getInput(){
+    public String getInput(){
         String input = scanner.next();
         input.toUpperCase();
         switch(input)
@@ -28,13 +28,13 @@ public class Input {
                 break;
             case "CLOSE":
                 break;
-            case "SHOW SALES"
+            case "SHOW SALES":
                 break;
-            case "QUIT"
+            case "QUIT":
                 break;
             default:
                 break;
         }
-
+        return input;
     }
 }

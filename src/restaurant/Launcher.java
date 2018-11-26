@@ -13,7 +13,11 @@ public class Launcher {
         restaurant.setDisplay(display);
         Input input = new Input();
         input.setScanner(scanner);
+        restaurant.
+        display.title();
+        do{
 
-
+        }
+        while(input.getInput());
     }
 }

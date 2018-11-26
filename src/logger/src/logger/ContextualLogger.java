@@ -15,7 +15,7 @@ public class ContextualLogger implements Logger{
     @Override
     public void log(String message) {
         SimpleDateFormat logFormat = new SimpleDateFormat("YYYY-MM-dd HH:mm.ss.SSS");
-        delagateLogger.log(logFormat.format(new Date())+""+ callerClass + " |        " + message);
+        delagateLogger.log(logFormat.format(new Date())+" "+ callerClass + " | " + message);
     }
 }
 

@@ -11,7 +11,7 @@ public class Display {
 
     public void title()
     {
-        logger.log("Welcome in Bagel&Klo management system !")
+        logger.log("Welcome in Bagel&Klo management system !");
     }
 
     public void ask()
@@ -31,6 +31,11 @@ public class Display {
     public void show(String text)
     {
         logger.log(text);
+    }
+
+    public void showHelp()
+    {
+
     }
 
 
