@@ -1,6 +1,8 @@
 package restaurant;
 
 import logger.src.logger.LoggerFactory;
+import restaurant.operation.Operation;
+import restaurant.operation.OperationExecutor;
 
 import java.util.Scanner;
 
@@ -13,11 +15,14 @@ public class Launcher {
         restaurant.setDisplay(display);
         Input input = new Input();
         input.setScanner(scanner);
-        restaurant.
-        display.title();
-        do{
+        restaurant.setInputSystem(input);
+        OperationExecutor operationExecutor = new OperationExecutor();
 
+        display.title();
+        boolean run = true;
+        while(run)
+        {
+            run = operationExecutor.operate(restaurant);
         }
-        while(input.getInput());
     }
 }

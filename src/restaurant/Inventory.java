@@ -62,7 +62,8 @@ public class Inventory {
     {
         for(int i = 0; i<productStacks.size(); i++)
         {
-            if(productStacks.get(i).getName() == name){
+            String n = productStacks.get(i).getName();
+            if( productStacks.get(i).getName().equals(name) ){
                 productStacks.get(i).add(quantity);
                 return;
             }
@@ -70,12 +71,27 @@ public class Inventory {
         addNewProduct(name,price,quantity);
     }
 
+    public boolean exists(String name)
+    {
+        for(int i = 0; i<productStacks.size(); i++)
+        {
+            String n = productStacks.get(i).getName();
+            if( productStacks.get(i).getName().equals(name) ) return true;
+        }
+        return false;
+    }
+
+    public boolean isEmpty(){
+        return (productStacks.size() == 0);
+
+    }
+
     public String toString()
     {
         String s = "";
         for(int i = 0 ; i < productStacks.size() ; i++)
         {
-            s += productStacks.get(i).toString() + "\n";
+            s += " - " + productStacks.get(i).toString() + "\n";
         }
         return s;
     }

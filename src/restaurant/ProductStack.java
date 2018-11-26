@@ -46,7 +46,7 @@ public class ProductStack {
 
     public String toString()
     {
-        return this.name + " : " + price;
+        return this.name + ", QUANTITY: " + quantity + ", PRICE: " + price;
     }
 
 }

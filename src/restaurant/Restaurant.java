@@ -2,12 +2,13 @@ package restaurant;
 
 import logger.src.logger.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant {
     private Display display;
-    private List<Bill> bills;
-    private Inventory inventory;
+    private List<Bill> bills = new ArrayList<Bill>();
+    private Inventory inventory = new Inventory();
     private Input input;
 
     private float money;
@@ -34,16 +35,21 @@ public class Restaurant {
         return display;
     }
 
-    public void listProducts(){
-        display.show("Produits disponibles : \n" + inventory.toString());
+    public Inventory getInventory(){
+        return this.inventory;
     }
 
+    public List<Bill> getBills(){
+        return bills;
+    }
+
+    // Ajoute un produit à la note d'un client
     public void addToBill(String customerName, String productName, float TVA){
         // On récupère la note du client customerName si elle existe déjà
         Bill b = null;
         for(int i = 0; i < bills.size() ; i++)
         {
-            if(bills.get(i).getCustomerName() == customerName) b = bills.get(i);
+            if(bills.get(i).getCustomerName().equals(customerName)) b = bills.get(i);
         }
         // Sinon, on en crée une nouvelle
         if(b == null) {

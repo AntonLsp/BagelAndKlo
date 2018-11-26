@@ -14,6 +14,14 @@ public class Display {
         logger.log("Welcome in Bagel&Klo management system !");
     }
 
+    public void incorrectIntegerInput(){
+        logger.log("Please enter an integer (Example : 3).");
+    }
+
+    public void incorrectFloatInput(){
+        logger.log("Please enter a decimal number (Example : 3,2).");
+    }
+
     public void ask()
     {
         logger.log("What do you want to do ?");
@@ -33,9 +41,9 @@ public class Display {
         logger.log(text);
     }
 
-    public void showHelp()
+    public void productFound()
     {
-
+        logger.log("Product found !");
     }
 
 
