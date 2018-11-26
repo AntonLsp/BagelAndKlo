@@ -91,7 +91,7 @@ public class Inventory {
         String s = "";
         for(int i = 0 ; i < productStacks.size() ; i++)
         {
-            s += " - " + productStacks.get(i).toString() + "\n"; 
+            s += " - " + productStacks.get(i).toString() + "\n";  
         }
         return s;
     }
