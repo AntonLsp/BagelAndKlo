@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Bill {
 
-    private List<Product> products;
     private float htPrice;
     private float ttcPrice;
     private float tvaPercentage;
@@ -15,6 +14,7 @@ public class Bill {
         this.ttcPrice = 0;
         this.tvaPercentage = TVA;
     }
+    private List<Product> products;
 
     public void add(String name, Inventory inventory) throws ProductNotFoundException
     {
