@@ -15,6 +15,8 @@ public class OperationExecutor {
     public OperationExecutor() {
         operations.add(new NewProductOp());
         operations.add(new ListProductsOp());
+        operations.add(new AddToBillOp());
+        operations.add(new CloseBillOp());
     }
 
     // Effectue une requête à l'utilisateur et exécute l'opération

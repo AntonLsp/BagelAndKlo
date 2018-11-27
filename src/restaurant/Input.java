@@ -19,7 +19,7 @@ public class Input {
     public String getTextInput(){
         String input = scanner.next();
         input = input.toUpperCase();
-        switch(input)
+        switch(input) // VIEUX CODE
         {
             case "HELP":
                 break;
@@ -62,7 +62,7 @@ public class Input {
                 input = scanner.nextInt();
             }
             catch (InputMismatchException e){
-                scanner.next();
+                scanner.nextLine();
                 display.incorrectIntegerInput();
             }
         }while(input < 0 );
@@ -79,7 +79,7 @@ public class Input {
                 input = scanner.nextFloat();
             }
             catch (InputMismatchException e){
-                scanner.next(); // Libère le buffer pour éviter une boucle infinie
+                scanner.nextLine(); // Libère le buffer pour éviter une boucle infinie
                 display.incorrectFloatInput();
             }
         }while(input < 0 );

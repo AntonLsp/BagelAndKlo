@@ -7,12 +7,11 @@ public class ListProductsOp implements Operation {
 
     public void doOperation(Restaurant restaurant){
         Display display = restaurant.getDisplay();
-        display.show("AVAILABLE PRODUCTS : ");
         if(restaurant.getInventory().isEmpty()){
             display.show("No product available...");
         }
         else{
-            display.show( restaurant.getInventory().toString() );
+            display.show( "AVAILABLE PRODUCTS : \n"+ restaurant.getInventory().toString() );
         }
     }
 

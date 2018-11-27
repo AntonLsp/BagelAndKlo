@@ -11,10 +11,13 @@ public class Restaurant {
     private Inventory inventory = new Inventory();
     private Input input;
 
+    private float tva;
+
     private float money;
     private float totalTVA;
 
     public Restaurant(){
+        tva = 0.2f;
         money = 0;
         totalTVA = 0;
     }
@@ -43,33 +46,21 @@ public class Restaurant {
         return bills;
     }
 
-    // Ajoute un produit à la note d'un client
-    public void addToBill(String customerName, String productName, float TVA){
-        // On récupère la note du client customerName si elle existe déjà
-        Bill b = null;
-        for(int i = 0; i < bills.size() ; i++)
-        {
-            if(bills.get(i).getCustomerName().equals(customerName)) b = bills.get(i);
+    public Bill getBill(String name){
+        for(int i = 0; i < bills.size() ; i++){
+            if(bills.get(i).getCustomerName().equals(name)) return bills.get(i);
         }
-        // Sinon, on en crée une nouvelle
-        if(b == null) {
-            b = new Bill(customerName,TVA);
-            bills.add(b);
-        }
-        // On essaie d'ajouter le produit productName à la note (s'il n'existe / est en stock)
-        try{
-            b.add(productName,inventory);
-            display.successOperation();
-        }
-        catch (ProductNotFoundException p){
-            display.failedOperation("The product is unavailable.");
-        }
+        return null;
     }
 
-    public boolean run()
+    public void removeBill(String name){
+        for(int i = 0; i < bills.size() ; i++){
+            if(bills.get(i).getCustomerName().equals(name)) bills.remove(i);
+        }
+    }
+    public float getTva()
     {
-        display.title();
-        return true;
+        return tva;
     }
 
 }

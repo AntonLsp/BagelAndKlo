@@ -25,30 +25,32 @@ public class Bill {
         }
     }
 
-    private List<BillProduct> productList;
+    private List<BillProduct> productList = new ArrayList<BillProduct>();
 
     private String customerName;
     private float htPrice;
     private float ttcPrice;
-    private float tvaPercentage;
+    private float tva;
 
     public Bill(String customerName, float TVA)
     {
         this.customerName = customerName;
         this.htPrice = 0;
         this.ttcPrice = 0;
-        this.tvaPercentage = TVA;
+        this.tva = TVA;
     }
     private List<Product> products;
 
+    // Récupère un produit en particulier s'il existe déjà dans la note
     private BillProduct getSpecificProduct(String name)
     {
-        for(BillProduct b : productList){
-            if (b.product.getName() == name) return b;
+        for(int i = 0 ; i<productList.size() ; i++){
+            if (productList.get(i).product.getName().equals(name)) return productList.get(i);
         }
         return null;
     }
 
+    // Ajoute un produit à la note en prenant en compte s'il existe déjà dans la note
     public void add(String name, Inventory inventory) throws ProductNotFoundException
     {
         try{
@@ -71,7 +73,7 @@ public class Bill {
     {
         for(int i=0; i<productList.size(); i++)
         {
-            if(productList.get(i).product.getName() == name)
+            if(productList.get(i).product.getName().equals(name))
             {
                 productList.remove(i);
             }
@@ -82,11 +84,14 @@ public class Bill {
 
     public String toString()
     {
+        Calculator calculator = new Calculator();
         String text = customerName + " :\n";
         for(BillProduct b : productList)
         {
-            text += b.product.getName() + " : " + b.getCount() + "  " + b.product.getPrice() + "\n";
+            text += " - " + b.product.getName() + " x" + b.getCount() + " : " + b.product.getPrice()*b.getCount() + "\n";
         }
+        text += "VAT : " + tva + "\n";
+        text += "TAX FREE : " + calculator.getPriceHt(productList) + "\nALL TAX INCLUDED : " + calculator.getPriceTtc(productList,tva);
         return text;
     }
 
