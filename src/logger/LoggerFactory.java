@@ -1,4 +1,4 @@
-package logger.src.logger;
+package logger;
 
 public class LoggerFactory {
 

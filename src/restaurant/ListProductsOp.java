@@ -1,7 +1,4 @@
-package restaurant.operation;
-
-import restaurant.Display;
-import restaurant.Restaurant;
+package restaurant;
 
 public class ListProductsOp implements Operation {
 
@@ -15,8 +12,12 @@ public class ListProductsOp implements Operation {
         }
     }
 
+    public void doAutoOperation(Restaurant restaurant, String command){
+
+    }
+
     public String getDescription(){
-        return "List all available products";
+        return "List all available products.";
     }
 
     public String toString(){

@@ -1,9 +1,4 @@
-package restaurant.operation;
-
-import restaurant.Bill;
-import restaurant.Display;
-import restaurant.ProductNotFoundException;
-import restaurant.Restaurant;
+package restaurant;
 
 import java.util.List;
 
@@ -12,6 +7,14 @@ public class AddToBillOp implements Operation{
     public void doOperation(Restaurant restaurant){
         String customerName = restaurant.getInputSystem().requestTextInput("CUSTOMER : ", restaurant.getDisplay());
         String productName = restaurant.getInputSystem().requestTextInput("PRODUCT : ", restaurant.getDisplay());
+        addToBill(restaurant,customerName,productName,restaurant.getTva(),restaurant.getDisplay());
+    }
+
+    public void doAutoOperation(Restaurant restaurant,String args){
+        String[] split = args.split(" ");
+        if(split.length < 2) throw new IllegalArgumentException();
+        String customerName = split[0];
+        String productName = split[1];
         addToBill(restaurant,customerName,productName,restaurant.getTva(),restaurant.getDisplay());
     }
 

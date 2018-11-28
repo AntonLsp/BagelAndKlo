@@ -1,14 +1,13 @@
 package restaurant;
 
-import logger.src.logger.LoggerFactory;
-import restaurant.operation.Operation;
-import restaurant.operation.OperationExecutor;
+import logger.LoggerFactory;
 
 import java.util.Scanner;
 
 public class Launcher {
 
     public static void main(String[] args) {
+
         Restaurant restaurant = new Restaurant();
         Scanner scanner = new Scanner(System.in);
         Display display = new Display(LoggerFactory.getLogger("logger"));
@@ -17,6 +16,10 @@ public class Launcher {
         input.setScanner(scanner);
         restaurant.setInputSystem(input);
         OperationExecutor operationExecutor = new OperationExecutor();
+        operationExecutor.getOperation("NEW").doAutoOperation(restaurant,"BAGEL 5 20"); // [Nom] [Prix] [Quantité]
+        operationExecutor.getOperation("NEW").doAutoOperation(restaurant,"BURGER 4 10");
+        operationExecutor.getOperation("NEW").doAutoOperation(restaurant,"SMOOTHIE 3 30");
+        operationExecutor.getOperation("NEW").doAutoOperation(restaurant,"COFFEE 1 10000");
 
         display.title();
         boolean run = true;

@@ -90,9 +90,19 @@ public class Bill {
         {
             text += " - " + b.product.getName() + " x" + b.getCount() + " : " + b.product.getPrice()*b.getCount() + "\n";
         }
-        text += "VAT : " + tva + "\n";
+        text += "VAT : " + tva*100 + "%\n";
         text += "TAX FREE : " + calculator.getPriceHt(productList) + "\nALL TAX INCLUDED : " + calculator.getPriceTtc(productList,tva);
         return text;
+    }
+
+    public float getTaxFreePrice(){
+        Calculator calculator = new Calculator();
+        return calculator.getPriceHt(productList);
+    }
+
+    public float getAllTaxIncludedPrice(){
+        Calculator calculator = new Calculator();
+        return calculator.getPriceTtc(productList,tva);
     }
 
     public String getCustomerName(){

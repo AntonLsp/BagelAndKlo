@@ -1,7 +1,5 @@
 package restaurant;
 
-import logger.src.logger.Logger;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,12 +11,12 @@ public class Restaurant {
 
     private float tva;
 
-    private float money;
+    private float revenue;
     private float totalTVA;
 
     public Restaurant(){
         tva = 0.2f;
-        money = 0;
+        revenue = 0;
         totalTVA = 0;
     }
 
@@ -55,9 +53,17 @@ public class Restaurant {
 
     public void removeBill(String name){
         for(int i = 0; i < bills.size() ; i++){
-            if(bills.get(i).getCustomerName().equals(name)) bills.remove(i);
+            if(bills.get(i).getCustomerName().equals(name)){
+                revenue += bills.get(i).getTaxFreePrice();
+                bills.remove(i);
+            }
         }
     }
+
+    public float taxFreeRevenue(){
+        return revenue;
+    }
+
     public float getTva()
     {
         return tva;

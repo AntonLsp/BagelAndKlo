@@ -19,25 +19,6 @@ public class Input {
     public String getTextInput(){
         String input = scanner.next();
         input = input.toUpperCase();
-        switch(input) // VIEUX CODE
-        {
-            case "HELP":
-                break;
-            case "NEW PRODUCT":
-                break;
-            case "LIST":
-                break;
-            case "ADD":
-                break;
-            case "CLOSE":
-                break;
-            case "SHOW SALES":
-                break;
-            case "QUIT":
-                break;
-            default:
-                break;
-        }
         return input;
     }
 
@@ -45,9 +26,10 @@ public class Input {
     public String requestTextInput(String request, Display display)
     {
         String input = "";
+        display.show(request);
         do {
-            display.show(request);
             input = this.getTextInput();
+            if(!Pattern.matches("[a-zA-Z]+",input)) display.show("Please enter only letters, not numbers or special characters.");
         }while(!Pattern.matches("[a-zA-Z]+",input) );
         return input;
     }

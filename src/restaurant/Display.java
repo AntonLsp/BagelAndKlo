@@ -1,6 +1,6 @@
 package restaurant;
 
-import logger.src.logger.Logger;
+import logger.Logger;
 
 public class Display {
     private Logger logger;
@@ -11,39 +11,34 @@ public class Display {
 
     public void title()
     {
-        logger.log("Welcome in Bagel&Klo management system !");
+        logger.info("PROGRAM","Welcome in Bagel&Klo management system !");
     }
 
     public void incorrectIntegerInput(){
-        logger.log("Please enter an integer (Example : 3).");
+        logger.error("OUTPUT","Please enter an integer (Example : 3).");
     }
 
     public void incorrectFloatInput(){
-        logger.log("Please enter a decimal number (Example : 3,2).");
-    }
-
-    public void ask()
-    {
-        logger.log("What do you want to do ?");
+        logger.error("OUTPUT","Please enter a decimal number (Example : 3,2).");
     }
 
     public void successOperation()
     {
-        logger.log("Successfull Operation !");
+        logger.info("PROGRAM","Successfull Operation !");
     }
 
     public void failedOperation(String error){
-        logger.log("Operation failed : " + error);
+        logger.info("PROGRAM","Operation failed : " + error);
     }
 
     public void show(String text)
     {
-        logger.log(text);
+        logger.info("OUTPUT",text);
     }
 
     public void productFound()
     {
-        logger.log("Product found !");
+        logger.info("PROGRAM","Product found !");
     }
 
 
